@@ -1,0 +1,72 @@
+.container {
+  display: flex;
+  background-color: #ffffff;
+  font-family: sans-serif;
+}
+
+.sidebar {
+  width: 25vh;
+  height: 100vh;
+  background-color: #ffffff;
+  border-right: 1px solid #ecf2f6;
+}
+
+#searchList {
+  width: 22vh;
+  height: 1rem;
+  border: 1px solid #edf3f6;
+  background-color: #ecf0f3;
+  font-size: small;
+  border-radius: 3px;
+}
+::placeholder {
+  color: #b2bbc3;
+}
+.logoContainer {
+  display: flex;
+  align-items: center;
+}
+
+.logoContainer img {
+  margin-right: 5px;
+}
+
+img {
+  margin: 0;
+}
+#taskApp {
+  font-family: sans-serif;
+  color: rgb(144, 82, 82);
+  font-weight: bold;
+}
+.bodyContent {
+  flex-grow: 1;
+}
+
+.menu {
+  list-style: none;
+  color: #333;
+  padding: 0;
+}
+
+.menu li {
+  margin-bottom: 10px;
+}
+
+.menu a {
+  color: rgb(160, 152, 152);
+  margin: 5px;
+}
+nav {
+  margin-top: 10px;
+  font-size: small;
+}
+
+a {
+  text-decoration: none;
+  font-weight: bold;
+  font-size: smaller;
+}
+a:hover {
+  color: #d7e0e9;
+}
