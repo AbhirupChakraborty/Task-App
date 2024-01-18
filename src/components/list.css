@@ -25,6 +25,7 @@
 .logoContainer {
   display: flex;
   align-items: center;
+  padding: 0 0 0 1.5vh;
 }
 
 .logoContainer img {
@@ -46,7 +47,7 @@ img {
 .menu {
   list-style: none;
   color: #333;
-  padding: 0;
+  padding: 0 1vh 0 1vh;
 }
 
 .menu li {
@@ -60,6 +61,7 @@ img {
 nav {
   margin-top: 10px;
   font-size: small;
+  padding: 0 0 0 1vh;
 }
 
 a {
@@ -69,4 +71,8 @@ a {
 }
 a:hover {
   color: #d7e0e9;
+}
+
+svg {
+  color: #959da5;
 }

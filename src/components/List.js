@@ -28,10 +28,10 @@ function List() {
           <input id="searchList" type="text" placeholder="Search" />
           <nav>
             <IoMdHome />
-            <Link to="/">Home</Link>
-            <hr color="#ecf2f6" />
+            <Link>Home</Link>
           </nav>
         </div>
+        <hr color="#f0f4f7" border-width="thin" />
       </div>
       <DndProvider backend={HTML5Backend}>
         <div className="bodyContent">
