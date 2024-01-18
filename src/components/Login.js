@@ -1,13 +1,15 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "./login.css";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   const handleLogin = () => {
     if (email && password) {
+      navigate("/list");
     } else {
       alert("Both fields are mandatory");
     }
@@ -41,11 +43,9 @@ function Login() {
           />
         </div>
         <div>
-          <Link to="/list">
-            <button className="loginButton" onClick={handleLogin}>
-              Log In
-            </button>
-          </Link>
+          <button className="loginButton" onClick={handleLogin}>
+            Log In
+          </button>
         </div>
         <a href="#" id="sso">
           {" "}

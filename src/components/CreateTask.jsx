@@ -7,7 +7,7 @@ const CreateTask = ({ tasks = [], setTasks }) => {
   const [task, setTask] = useState({
     id: "",
     name: "",
-    status: "todo",
+    status: "open",
   });
 
   const handleSubmit = (e) => {
@@ -26,7 +26,7 @@ const CreateTask = ({ tasks = [], setTasks }) => {
     setTask({
       id: "",
       name: "",
-      status: "todo",
+      status: "open",
     });
   };
 
@@ -39,7 +39,7 @@ const CreateTask = ({ tasks = [], setTasks }) => {
         }
       />
       <button className="createButton" type="submit">
-        Create
+        Create List
       </button>
     </form>
   );

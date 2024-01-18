@@ -5,26 +5,26 @@ import { FaTrash } from "react-icons/fa";
 import { useDrag, useDrop } from "react-dnd";
 
 const ListTask = ({ tasks = [], setTasks }) => {
-  const [todos, setTodos] = useState([]);
+  const [open, setOpen] = useState([]);
   const [inProgress, setInProgress] = useState([]);
   const [review, setReview] = useState([]);
   const [closed, setClosed] = useState([]);
 
   useEffect(() => {
     if (tasks && Array.isArray(tasks)) {
-      const fTodos = tasks.filter((task) => task.status === "todo");
+      const fOpen = tasks.filter((task) => task.status === "open");
       const fInProgress = tasks.filter((task) => task.status === "inprogress");
       const fReview = tasks.filter((task) => task.status === "review");
       const fClosed = tasks.filter((task) => task.status === "closed");
 
-      setTodos(fTodos);
+      setOpen(fOpen);
       setInProgress(fInProgress);
       setReview(fReview);
       setClosed(fClosed);
     }
   }, [tasks]);
 
-  const statuses = ["todo", "inprogress", "review", "closed"];
+  const statuses = ["open", "inprogress", "review", "closed"];
 
   return (
     <div className="table">
@@ -34,7 +34,7 @@ const ListTask = ({ tasks = [], setTasks }) => {
           status={status}
           tasks={tasks}
           setTasks={setTasks}
-          todos={todos}
+          open={open}
           inProgress={inProgress}
           review={review}
           closed={closed}
@@ -50,7 +50,7 @@ const Section = ({
   status,
   tasks,
   setTasks,
-  todos,
+  open,
   inProgress,
   review,
   closed,
@@ -63,8 +63,8 @@ const Section = ({
     }),
   }));
 
-  let text = "todo";
-  let tasksToMap = todos;
+  let text = "open";
+  let tasksToMap = open;
 
   if (status === "inprogress") {
     text = "inprogress";
