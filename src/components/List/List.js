@@ -2,10 +2,10 @@ import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Toaster } from "react-hot-toast";
 import { IoMdHome } from "react-icons/io";
-import logo from "../assets/logo.jpg";
+import logo from "/Users/chaka5/Documents/Goal/src/assets/logo.jpg";
 import "./list.css";
-import CreateTask from "./CreateTask";
-import ListTask from "./ListTask";
+import CreateTask from "../CreateTask/CreateTask";
+import ListTask from "../ListTask/ListTask";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 
@@ -35,8 +35,9 @@ function List() {
       </div>
       <DndProvider backend={HTML5Backend}>
         <div className="bodyContent">
+          <div>List Board view</div>
           <CreateTask tasks={tasks} setTasks={setTasks} />
-          <hr color="#ecf2f6" />
+          {/* <hr color="#ecf2f6" /> */}
           <ListTask tasks={tasks} setTasks={setTasks} />
         </div>
       </DndProvider>

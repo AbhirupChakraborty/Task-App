@@ -1,5 +1,5 @@
-import Login from "./components/Login";
-import List from "./components/List";
+import Login from "./components/Login/Login";
+import List from "./components/List/List";
 import { Route, Routes } from "react-router-dom";
 
 function App() {
