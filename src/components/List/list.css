@@ -12,12 +12,17 @@
 }
 
 #searchList {
-  width: 22vh;
+  padding-left: 20px;
+  background: url("https://assets.stickpng.com/images/585e4ae1cb11b227491c3393.png")
+    no-repeat left;
+  background-size: 13px;
+  width: 20vh;
   height: 1rem;
   border: 1px solid #edf3f6;
   background-color: #ecf0f3;
   font-size: small;
   border-radius: 3px;
+  margin-left: 5px;
 }
 ::placeholder {
   color: #b2bbc3;

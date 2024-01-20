@@ -27,6 +27,7 @@ function Login() {
         <div className="field">
           <label className="p">Email</label>
           <input
+            className="iconEmail"
             type="text"
             placeholder="Enter your email"
             value={email}
@@ -39,15 +40,19 @@ function Login() {
         </div>
         <div className="field">
           <label className="p">Password</label>
-          <input
-            type="password"
-            placeholder="Enter password"
-            value={password}
-            onChange={(e) => {
-              setPassword(e.target.value);
-              setPasswordError("");
-            }}
-          />
+          <div className="password-container">
+            <input
+              className="iconPassword"
+              type="password"
+              placeholder="Enter password"
+              value={password}
+              onChange={(e) => {
+                setPassword(e.target.value);
+                setPasswordError("");
+              }}
+            />
+            <button className="forget-password">Forget Password?</button>
+          </div>
           {passwordError && <div className="error">{passwordError}</div>}
         </div>
         <div>

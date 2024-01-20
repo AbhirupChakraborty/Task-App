@@ -46,6 +46,45 @@ const ListTask = ({ tasks = [], setTasks }) => {
 
 export default ListTask;
 
+const Header = ({ text, count }) => {
+  return (
+    <div className="header">
+      {text}
+      <div className="counter">{count}</div>
+    </div>
+  );
+};
+
+const Task = ({ task, tasks, setTasks }) => {
+  const [{ isDragging }, drag] = useDrag(() => ({
+    type: "task",
+    item: { id: task.id },
+    collect: (monitor) => ({
+      isDragging: !!monitor.isDragging(),
+    }),
+  }));
+  const handleRemove = (id) => {
+    const ftasks = tasks.filter((t) => t.id !== id);
+    localStorage.setItem("tasks", JSON.stringify(ftasks));
+    setTasks(ftasks);
+    toast("Task Removed", { icon: "💀" });
+  };
+  return (
+    <div ref={drag} className="card">
+      <x-small>List</x-small>
+      <p>{task.name}</p>
+      <button
+        className="deleteIcon"
+        onClick={() => {
+          handleRemove(task.id);
+        }}
+      >
+        <FaTrash />
+      </button>
+    </div>
+  );
+};
+
 const Section = ({
   status,
   tasks,
@@ -99,45 +138,6 @@ const Section = ({
         tasksToMap.map((task) => (
           <Task key={task.id} task={task} tasks={tasks} setTasks={setTasks} />
         ))}
-    </div>
-  );
-};
-
-const Header = ({ text, count }) => {
-  return (
-    <div className="header">
-      {text}
-      <div className="counter">{count}</div>
-    </div>
-  );
-};
-
-const Task = ({ task, tasks, setTasks }) => {
-  const [{ isDragging }, drag] = useDrag(() => ({
-    type: "task",
-    item: { id: task.id },
-    collect: (monitor) => ({
-      isDragging: !!monitor.isDragging(),
-    }),
-  }));
-  const handleRemove = (id) => {
-    const ftasks = tasks.filter((t) => t.id !== id);
-    localStorage.setItem("tasks", JSON.stringify(ftasks));
-    setTasks(ftasks);
-    toast("Task Removed", { icon: "💀" });
-  };
-  return (
-    <div ref={drag} className="card">
-      <x-small>List</x-small>
-      <p>{task.name}</p>
-      <button
-        className="deleteIcon"
-        onClick={() => {
-          handleRemove(task.id);
-        }}
-      >
-        <FaTrash />
-      </button>
     </div>
   );
 };
