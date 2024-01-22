@@ -1,20 +1,105 @@
+.topBar {
+  color: #101010;
+  padding: 10px;
+  padding-bottom: 0;
+  border-bottom: 1px solid #ecf2f6;
+}
+
+.navBar {
+  display: flex;
+  align-items: center;
+}
+
+.navOption {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+  margin-bottom: 5px;
+  text-decoration: none;
+  color: #4e4d4d;
+  font-size: smaller;
+  font-weight: normal;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+.navOption::after {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: -5px; /* Adjust the distance between text and highlighter */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 3px; /* Adjust the height of the highlighter */
+  background-color: rgb(
+    141,
+    104,
+    228
+  ); /* Adjust the color of the highlighter */
+  transition: width 0.3s ease;
+}
+
+.navOption:hover::after {
+  width: 100%;
+  transition: width 0.3s ease;
+}
+.navOption img {
+  width: 10px;
+  height: 10px;
+  margin-right: 5px;
+}
+
+.navSeparator {
+  height: 20px;
+  width: 1px;
+  background-color: #ecf2f6;
+  margin-right: 10px;
+}
+
+.modal {
+  width: 50vh;
+  height: 50vh;
+  background-color: #dad6d6;
+  padding: 20px;
+  border-radius: 8px;
+}
+
 .createButton {
-  display: inline-block;
   font-size: x-small;
   text-align: center;
   text-decoration: none;
   background-color: rgb(141, 104, 228);
   padding: 5px 15px;
-  border: 2px solid #e9edef;
+  border: 0.5px solid rgba(252, 250, 250, 0.1);
   border-radius: 5px;
-  box-shadow: 0 15px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
   transition: background-color 0.3s, box-shadow 0.3s;
   cursor: pointer;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   color: #fff;
-  margin: 10px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
 }
 .createButton:hover {
   background-color: rgb(201, 183, 244);
+}
+
+#board {
+  color: rgb(115, 87, 182);
+}
+#board img {
+  width: 20px;
+  height: 20px;
+}
+#topList {
+  font-size: large;
+  font-weight: bold;
+}
+#firstListLogo {
+  width: 20px;
+  height: 20px;
+  background-color: #e9edef;
 }

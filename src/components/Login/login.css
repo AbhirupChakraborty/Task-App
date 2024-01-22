@@ -96,19 +96,24 @@ input {
 .signUp:hover {
   background-color: rgb(201, 183, 244);
 }
+.helpDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* or any other appropriate value */
+}
+
 #help {
-  margin-top: 1vh;
-  background: url("https://icones.pro/wp-content/uploads/2021/05/icone-point-d-interrogation-question-gris.png")
-    no-repeat top;
-  background-size: 18px;
-  height: 5vh;
-  width: 5vh;
-  position: relative;
-  top: 90px;
+  margin-top: 27vh;
+  background: url(https://icones.pro/wp-content/uploads/2021/05/icone-point-d-interrogation-question-gris.png)
+    no-repeat center;
+  background-size: 16px;
+  height: 5.5vh;
   margin-left: 1vh;
-  padding-top: 1vh;
+  width: 5vh;
+  padding-top: 3.5vh;
   font-size: xx-small;
-  background-color: transparent;
+  background-color: rgba(252, 250, 250, 0.1);
   cursor: pointer;
   color: #fff;
   border: 0.5px solid rgba(0, 0, 0, 0.1);
@@ -139,6 +144,7 @@ input {
   margin-top: 330px;
   color: #d4cfcf;
   font-size: x-small;
+  margin-right: 6vh;
 }
 #lastLine {
   color: #d4cfcf;
@@ -146,10 +152,7 @@ input {
   bottom: 10px;
   font-size: xx-small;
 }
-.helpDiv {
-  height: 0;
-  width: 0;
-}
+
 .error {
   color: red;
   font-size: 10px;
@@ -159,6 +162,7 @@ input {
   border: 1px solid red;
 }
 .iconEmail {
+  left: 10px;
   padding-left: 25px;
   background: url("https://icons.veryicon.com/png/o/miscellaneous/xboard/mail-subscription.png")
     no-repeat left;
