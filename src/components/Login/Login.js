@@ -63,7 +63,9 @@ function Login() {
         <a id="sso">or login with SSO</a>
       </div>
       <div className="helpDiv">
-        <button id="help">Help</button>
+        <button type="text" id="help">
+          Help
+        </button>
       </div>
       <div id="footer">
         <text>
