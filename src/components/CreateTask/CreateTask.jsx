@@ -35,16 +35,14 @@ const CreateTask = ({ tasks = [], setTasks }) => {
   return (
     <div className="topBar">
       <div className="navBar">
-        <Link to="/list">
-          <div id="topList" className="navOption">
-            <img
-              id="firstListLogo"
-              src="https://www.kindpng.com/picc/m/10-107754_buffering-quantum-dots-gold-nanoparticles-hd-png-download.png"
-              alt="List"
-            />
-            List
-          </div>
-        </Link>
+        <div id="topList">
+          <img
+            id="firstListLogo"
+            src="https://www.kindpng.com/picc/m/10-107754_buffering-quantum-dots-gold-nanoparticles-hd-png-download.png"
+            alt="List"
+          />
+          List
+        </div>
         <div className="navSeparator"></div>
         <Link to="/list">
           <div className="navOption">
@@ -58,7 +56,7 @@ const CreateTask = ({ tasks = [], setTasks }) => {
         <div className="navSeparator"></div>
 
         <Link to="/list">
-          <div id="board" className="navOption">
+          <div className="navOption">
             <img
               src="https://png.pngtree.com/element_our/20190601/ourmid/pngtree-purple-icon-free-illustration-image_1331414.jpg"
               alt="Board"
@@ -84,17 +82,21 @@ const CreateTask = ({ tasks = [], setTasks }) => {
             <div className="modal">
               <form onSubmit={handleSubmit}>
                 <input
+                  id="popupInput"
                   type="text"
+                  value={task.name}
                   onChange={(e) =>
                     setTask({ ...task, id: uuidv4(), name: e.target.value })
                   }
                 />
                 <button className="createButton" type="submit">
-                  Create List
+                  create
                 </button>
               </form>
               <div>
-                <button onClick={() => close()}>close</button>
+                <button className="closeButton" onClick={() => close()}>
+                  close
+                </button>
               </div>
             </div>
           )}

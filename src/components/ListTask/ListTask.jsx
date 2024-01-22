@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import "./listTask.css";
 import toast from "react-hot-toast";
 import { FaTrash } from "react-icons/fa";
+import { FaCircleUser } from "react-icons/fa6";
 import { useDrag, useDrop } from "react-dnd";
 
 const ListTask = ({ tasks = [], setTasks }) => {
@@ -71,16 +72,21 @@ const Task = ({ task, tasks, setTasks }) => {
   };
   return (
     <div ref={drag} className="card">
-      <x-small>List</x-small>
-      <p>{task.name}</p>
-      <button
-        className="deleteIcon"
-        onClick={() => {
-          handleRemove(task.id);
-        }}
-      >
-        <FaTrash />
-      </button>
+      <div id="contentCard">
+        <x-small>List</x-small>
+        <p>{task.name}</p>
+        <button
+          className="deleteIcon"
+          onClick={() => {
+            handleRemove(task.id);
+          }}
+        >
+          <FaTrash />
+        </button>
+        <button id="userIcon">
+          <FaCircleUser style={{ width: "2vh", height: "2vh" }} />
+        </button>
+      </div>
     </div>
   );
 };

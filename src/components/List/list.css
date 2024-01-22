@@ -22,7 +22,6 @@
   background-color: #ecf0f3;
   font-size: small;
   border-radius: 3px;
-  margin-left: 5px;
 }
 ::placeholder {
   color: #b2bbc3;
@@ -52,7 +51,8 @@ img {
 .menu {
   list-style: none;
   color: #333;
-  padding: 0 1vh 0 1vh;
+  padding: 0 1vh 1vh 1vh;
+  border-bottom: 1px solid #ecf2f6;
 }
 
 .menu li {

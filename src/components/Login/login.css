@@ -174,12 +174,12 @@ input {
     no-repeat left;
   background-size: 18px;
 }
-.password-container {
+.passwordContainer {
   display: flex;
   align-items: center;
   position: relative;
 }
-.forget-password {
+.forgetPassword {
   position: absolute;
   right: 10px;
   background: transparent;

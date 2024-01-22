@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./login.css";
 
 function Login() {
@@ -40,7 +40,7 @@ function Login() {
         </div>
         <div className="field">
           <label className="p">Password</label>
-          <div className="password-container">
+          <div className="passwordContainer">
             <input
               className="iconPassword"
               type="password"
@@ -51,7 +51,7 @@ function Login() {
                 setPasswordError("");
               }}
             />
-            <button className="forget-password">Forget Password?</button>
+            <button className="forgetPassword">Forget Password?</button>
           </div>
           {passwordError && <div className="error">{passwordError}</div>}
         </div>
@@ -60,7 +60,9 @@ function Login() {
             Log In
           </button>
         </div>
-        <a id="sso">or login with SSO</a>
+        <Link to="/" id="sso">
+          or login with SSO
+        </Link>
       </div>
       <div className="helpDiv">
         <button id="help">Help</button>
@@ -68,21 +70,21 @@ function Login() {
       <div id="footer">
         <text>
           Don't have a account?
-          <a>
+          <Link to="/">
             <u>Sign Up</u>
-          </a>
+          </Link>
         </text>
       </div>
       <div id="lastLine">
         <text>
           This site is protected by reCAPTCHA and the Google
-          <a>
+          <Link to="/">
             <u>Privacy Policy</u>
-          </a>
+          </Link>
           and
-          <a>
+          <Link to="/">
             <u>Terms of Service</u>
-          </a>
+          </Link>
           apply
         </text>
       </div>

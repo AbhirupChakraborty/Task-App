@@ -3,7 +3,8 @@
   color: #363535;
   display: flex;
   gap: 3vh;
-  margin: 3vh;
+  margin-top: 2vh;
+  margin-left: 3vh;
 }
 .header {
   display: flex;
@@ -78,15 +79,21 @@
 .card .deleteIcon {
   position: absolute;
   top: 8px;
-  right: 10px;
-  color: #d2a1de;
+  right: 12px;
   border: none;
   padding: 0;
-  border-radius: 4px;
+  margin: 0;
+  background-color: white;
   cursor: pointer;
-  transition: background-color 0.3s ease-in-out;
 }
 
-.card .deleteIcon:hover {
-  background-color: #d9534f;
+#userIcon {
+  position: absolute;
+  left: 21vh;
+  bottom: 0.5vh;
+  padding: 0;
+  margin: 0;
+  background-color: white;
+  border: 0;
+  padding-bottom: 2vh;
 }
