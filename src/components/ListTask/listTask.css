@@ -74,6 +74,11 @@
   margin-bottom: 8px;
   font-weight: bold;
   padding: 0 4vh 0 0;
+  overflow: scroll;
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* Number of lines to show */
+  -webkit-box-orient: vertical;
+  max-height: 3em;
 }
 
 .card .deleteIcon {

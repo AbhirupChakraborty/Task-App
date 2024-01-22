@@ -13,13 +13,13 @@
 
 #searchList {
   padding-left: 20px;
-  background: url("https://assets.stickpng.com/images/585e4ae1cb11b227491c3393.png")
+  background: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7FU6w8CjFGxIU7BwH3-sSTtUgdaPlHksqsg&usqp=CAU")
     no-repeat left;
-  background-size: 13px;
+  background-size: 18px;
   width: 20vh;
   height: 1rem;
   border: 1px solid #edf3f6;
-  background-color: #ecf0f3;
+  background-color: rgb(247, 248, 248);
   font-size: small;
   border-radius: 3px;
 }

@@ -162,17 +162,18 @@ input {
   border: 1px solid red;
 }
 .iconEmail {
-  left: 10px;
   padding-left: 25px;
-  background: url("https://icons.veryicon.com/png/o/miscellaneous/xboard/mail-subscription.png")
+  background: url("https://banner2.cleanpng.com/20180608/bta/kisspng-email-computer-icons-el-sol-foods-5b1b08b94225d9.997428001528498361271.jpg")
     no-repeat left;
-  background-size: 18px;
+  background-size: 20px;
+  background-color: rgb(246, 246, 246);
 }
 .iconPassword {
   padding-left: 25px;
-  background: url("https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Lock_full.svg/1024px-Lock_full.svg.png")
+  background: url("https://w7.pngwing.com/pngs/443/458/png-transparent-computer-icons-lock-multi-factor-authentication-font-awesome-security-key-miscellaneous-payment-code.png")
     no-repeat left;
-  background-size: 18px;
+  background-size: 20px;
+  background-color: rgb(246, 246, 246);
 }
 .passwordContainer {
   display: flex;
@@ -188,5 +189,5 @@ input {
   font-size: x-small;
   cursor: pointer;
   z-index: 2;
-  background-color: #fff;
+  background-color: rgb(246, 246, 246);
 }

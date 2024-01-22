@@ -74,7 +74,7 @@ const Task = ({ task, tasks, setTasks }) => {
     <div ref={drag} className="card">
       <div id="contentCard">
         <x-small>List</x-small>
-        <p>{task.name}</p>
+        <p className="taskName">{task.name}</p>
         <button
           className="deleteIcon"
           onClick={() => {
