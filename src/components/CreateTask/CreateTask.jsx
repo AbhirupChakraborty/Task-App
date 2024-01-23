@@ -81,13 +81,15 @@ const CreateTask = ({ tasks = [], setTasks }) => {
           {(close) => (
             <div className="modal">
               <form onSubmit={handleSubmit}>
-                <input
+                <textarea
                   id="popupInput"
                   type="text"
                   value={task.name}
                   onChange={(e) =>
                     setTask({ ...task, id: uuidv4(), name: e.target.value })
                   }
+                  rows="6"
+                  cols="28"
                 />
                 <button className="createButton" type="submit">
                   create

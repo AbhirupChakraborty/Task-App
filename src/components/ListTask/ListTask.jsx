@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import "./listTask.css";
 import toast from "react-hot-toast";
+import { Link } from "react-router-dom";
 import { FaTrash } from "react-icons/fa";
 import { FaCircleUser } from "react-icons/fa6";
 import { useDrag, useDrop } from "react-dnd";
@@ -75,6 +76,10 @@ const Task = ({ task, tasks, setTasks }) => {
       <div id="contentCard">
         <x-small>List</x-small>
         <p className="taskName">{task.name}</p>
+        <Link to="/list" className="addSubtask">
+          <img src="https://pngimg.com/d/plus_PNG100.png" alt="view" />
+          ADD SUBTASK
+        </Link>
         <button
           className="deleteIcon"
           onClick={() => {
