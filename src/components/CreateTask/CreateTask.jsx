@@ -4,6 +4,7 @@ import "./createTask.css";
 import { Link } from "react-router-dom";
 import toast from "react-hot-toast";
 import Popup from "reactjs-popup";
+import { FaTimes } from "react-icons/fa";
 
 const CreateTask = ({ tasks = [], setTasks }) => {
   const [task, setTask] = useState({
@@ -91,14 +92,21 @@ const CreateTask = ({ tasks = [], setTasks }) => {
                   rows="6"
                   cols="28"
                 />
-                <button className="createButton" type="submit">
+                <button className="create" type="submit">
                   create
                 </button>
               </form>
-              <div>
-                <button className="closeButton" onClick={() => close()}>
-                  close
-                </button>
+              <div
+                className="crossMark"
+                onClick={() => close()}
+                style={{
+                  color: "red",
+                  position: "absolute",
+                  top: "1vh",
+                  right: "1vh",
+                }}
+              >
+                <FaTimes />
               </div>
             </div>
           )}

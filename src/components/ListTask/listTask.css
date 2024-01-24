@@ -55,6 +55,7 @@
 }
 
 .card {
+  display: flex;
   font-size: x-small;
   position: relative;
   background-color: #ffffff;

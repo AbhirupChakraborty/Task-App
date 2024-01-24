@@ -66,6 +66,7 @@
   border-radius: 8px;
 }
 
+.closeButton,
 .createButton {
   font-size: x-small;
   text-align: center;
@@ -84,10 +85,11 @@
   top: 10px;
   right: 10px;
 }
+.closeButton:hover,
 .createButton:hover {
   background-color: rgb(201, 183, 244);
 }
-.closeButton {
+.create {
   font-size: x-small;
   text-align: center;
   text-decoration: none;
@@ -101,10 +103,12 @@
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   color: #fff;
-  position: relative;
-  left: 24vh;
-  margin: 2px;
-  margin-top: 2vh;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+.create:hover {
+  background-color: rgb(201, 183, 244);
 }
 #board {
   color: rgb(115, 87, 182);

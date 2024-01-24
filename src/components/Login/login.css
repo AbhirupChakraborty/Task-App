@@ -84,7 +84,7 @@ input {
   padding: 5px 15px;
   border: 0.5px solid rgba(252, 250, 250, 0.1);
   border-radius: 5px;
-  box-shadow: 0 15px 15px rgb(207, 194, 240);
+  box-shadow: 0 10px 10px rgb(207, 194, 240);
   transition: background-color 0.3s, box-shadow 0.3s;
   cursor: pointer;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
