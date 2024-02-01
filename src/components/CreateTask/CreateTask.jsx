@@ -45,7 +45,7 @@ const CreateTask = ({ tasks = [], setTasks }) => {
           List
         </div>
         <div className="navSeparator"></div>
-        <Link to="/list">
+        <Link to="">
           <div className="navOption">
             <img
               src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8sg2J7ANgW5ZyFiH0A_B6jaGjXOkn-aIlcuuvRRvptKcH8G41f4rtYf-U75Qc6Ssd6W8&usqp=CAU"
@@ -67,7 +67,7 @@ const CreateTask = ({ tasks = [], setTasks }) => {
         </Link>
         <div className="navSeparator"></div>
 
-        <Link to="/list">
+        <Link to="">
           <div className="navOption">
             <img src="https://pngimg.com/d/plus_PNG100.png" alt="view" />
             View

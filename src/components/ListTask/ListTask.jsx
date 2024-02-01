@@ -74,23 +74,29 @@ const Task = ({ task, tasks, setTasks }) => {
   return (
     <div ref={drag} className="card">
       <div id="contentCard">
-        <x-small>List</x-small>
-        <p className="taskName">{task.name}</p>
-        <Link to="/list" className="addSubtask">
-          <img src="https://pngimg.com/d/plus_PNG100.png" alt="view" />
-          ADD SUBTASK
-        </Link>
-        <button
-          className="deleteIcon"
-          onClick={() => {
-            handleRemove(task.id);
-          }}
-        >
-          <FaTrash />
-        </button>
-        <button id="userIcon">
-          <FaCircleUser style={{ width: "2vh", height: "2vh" }} />
-        </button>
+        <div className="contentCradItem">
+          <x-small>List</x-small>
+          <button
+            className="deleteIcon"
+            onClick={() => {
+              handleRemove(task.id);
+            }}
+          >
+            <FaTrash />
+          </button>
+        </div>
+        <div className="contentCradItem">
+          <p className="taskName">{task.name}</p>
+          <button id="userIcon">
+            <FaCircleUser style={{ width: "2vh", height: "2vh" }} />
+          </button>
+        </div>
+        <div className="contentCardItem">
+          <Link to="/list" className="addSubtask">
+            <img src="https://pngimg.com/d/plus_PNG100.png" alt="view" />
+            ADD SUBTASK
+          </Link>
+        </div>
       </div>
     </div>
   );
