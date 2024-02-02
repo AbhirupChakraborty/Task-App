@@ -5,8 +5,8 @@ body {
 .loginPage {
   font-family: sans-serif;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-flow: column wrap;
+  justify-content: space-between;
   margin: 0;
   width: 100%;
   height: 100vh;
@@ -19,10 +19,10 @@ body {
   );
 }
 #header {
-  position: fixed;
-  top: 10px;
   font-size: x-small;
-  right: 10px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
 #sso {
   position: relative;
@@ -98,20 +98,20 @@ input {
 }
 .helpDiv {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh; /* or any other appropriate value */
+  align-self: flex-end;
 }
 
 #help {
-  margin-top: 27vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
   background: url(https://icones.pro/wp-content/uploads/2021/05/icone-point-d-interrogation-question-gris.png)
-    no-repeat center;
+    no-repeat top;
   background-size: 16px;
+  background-position-x: center;
+  background-position-y: center;
   height: 5.5vh;
-  margin-left: 1vh;
   width: 5vh;
-  padding-top: 3.5vh;
   font-size: xx-small;
   background-color: rgba(252, 250, 250, 0.1);
   cursor: pointer;
@@ -130,6 +130,7 @@ input {
   cursor: pointer;
 }
 #loginCard {
+  align-self: center;
   background: #fff;
   color: rgb(65, 61, 61);
   border-radius: 7px;
@@ -137,20 +138,20 @@ input {
   padding: 30px;
   width: 250px;
   height: 210px;
-  margin-bottom: 10px;
 }
 #footer {
-  position: absolute;
-  margin-top: 330px;
   color: #d4cfcf;
   font-size: x-small;
-  margin-right: 6vh;
+  display: flex;
+  justify-content: center;
 }
 #lastLine {
   color: #d4cfcf;
-  position: fixed;
-  bottom: 10px;
   font-size: xx-small;
+  display: flex;
+  justify-content: center;
+  flex-flow: row wrap;
+  padding-bottom: 1vh;
 }
 
 .error {
@@ -166,6 +167,7 @@ input {
   background: url("https://banner2.cleanpng.com/20180608/bta/kisspng-email-computer-icons-el-sol-foods-5b1b08b94225d9.997428001528498361271.jpg")
     no-repeat left;
   background-size: 20px;
+  background-position-x: 3px;
   background-color: rgb(246, 246, 246);
 }
 .iconPassword {
@@ -173,6 +175,8 @@ input {
   background: url("https://w7.pngwing.com/pngs/443/458/png-transparent-computer-icons-lock-multi-factor-authentication-font-awesome-security-key-miscellaneous-payment-code.png")
     no-repeat left;
   background-size: 20px;
+  background-position-x: 3px;
+  background-position-y: 1px;
   background-color: rgb(246, 246, 246);
 }
 .passwordContainer {
@@ -190,4 +194,12 @@ input {
   cursor: pointer;
   z-index: 2;
   background-color: rgb(246, 246, 246);
+}
+#card {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-content: center;
+  gap: 1vh;
+  flex-grow: 1;
 }

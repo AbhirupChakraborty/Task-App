@@ -22,50 +22,54 @@ function Login() {
         <small>Don't have a account? </small>
         <button className="signUp"> Sign up </button>
       </div>
-      <div id="loginCard">
-        <h3>Welcome back!</h3>
-        <div className="field">
-          <label className="p">Email</label>
-          <input
-            className="iconEmail"
-            type="text"
-            placeholder="Enter your email"
-            value={email}
-            onChange={(e) => {
-              setEmail(e.target.value);
-              setEmailError("");
-            }}
-          />
-          {emailError && <div className="error">{emailError}</div>}
-        </div>
-        <div className="field">
-          <label className="p">Password</label>
-          <div className="passwordContainer">
+      <div id="card">
+        <div id="loginCard">
+          <h3>Welcome back!</h3>
+          <div className="field">
+            <label className="p">Email</label>
             <input
-              className="iconPassword"
-              type="password"
-              placeholder="Enter password"
-              value={password}
+              className="iconEmail"
+              type="text"
+              placeholder="Enter your email"
+              value={email}
               onChange={(e) => {
-                setPassword(e.target.value);
-                setPasswordError("");
+                setEmail(e.target.value);
+                setEmailError("");
               }}
             />
-            <button className="forgetPassword">Forget Password?</button>
+            {emailError && <div className="error">{emailError}</div>}
           </div>
-          {passwordError && <div className="error">{passwordError}</div>}
+          <div className="field">
+            <label className="p">Password</label>
+            <div className="passwordContainer">
+              <input
+                className="iconPassword"
+                type="password"
+                placeholder="Enter password"
+                value={password}
+                onChange={(e) => {
+                  setPassword(e.target.value);
+                  setPasswordError("");
+                }}
+              />
+              <button className="forgetPassword">Forget Password?</button>
+            </div>
+            {passwordError && <div className="error">{passwordError}</div>}
+          </div>
+          <div>
+            <button className="loginButton" onClick={handleLogin}>
+              Log In
+            </button>
+          </div>
+          <div>
+            <Link to="/" id="sso">
+              or login with SSO
+            </Link>
+          </div>
         </div>
-        <div>
-          <button className="loginButton" onClick={handleLogin}>
-            Log In
-          </button>
+        <div className="helpDiv">
+          <button id="help">Help</button>
         </div>
-        <Link to="/" id="sso">
-          or login with SSO
-        </Link>
-      </div>
-      <div className="helpDiv">
-        <button id="help">Help</button>
       </div>
       <div id="footer">
         <text>
