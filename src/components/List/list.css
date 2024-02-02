@@ -9,6 +9,7 @@
   flex-direction: column;
   background-color: #ffffff;
   border-right: 1px solid #ecf2f6;
+  height: 100vh;
 }
 
 #searchList {
@@ -22,6 +23,7 @@
   background-color: rgb(247, 248, 248);
   font-size: small;
   border-radius: 3px;
+  background-position-x: 2px;
 }
 ::placeholder {
   color: #b2bbc3;
