@@ -26,7 +26,7 @@ function List() {
         </div>
         <div className="menu">
           <input id="searchList" type="text" placeholder="Search" />
-          <nav>
+          <nav className="menuList">
             <IoMdHome />
             <Link>Home</Link>
           </nav>

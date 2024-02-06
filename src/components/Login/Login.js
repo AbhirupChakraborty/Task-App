@@ -71,26 +71,28 @@ function Login() {
           <button id="help">Help</button>
         </div>
       </div>
-      <div id="footer">
-        <text>
-          Don't have a account?
-          <Link to="/">
-            <u>Sign Up</u>
-          </Link>
-        </text>
-      </div>
-      <div id="lastLine">
-        <text>
-          This site is protected by reCAPTCHA and the Google
-          <Link to="/">
-            <u>Privacy Policy</u>
-          </Link>
-          and
-          <Link to="/">
-            <u>Terms of Service</u>
-          </Link>
-          apply
-        </text>
+      <div>
+        <div id="footer">
+          <text>
+            Don't have a account?
+            <Link to="/">
+              <u>Sign Up</u>
+            </Link>
+          </text>
+        </div>
+        <div id="lastLine">
+          <text>
+            This site is protected by reCAPTCHA and the Google
+            <Link to="/">
+              <u>Privacy Policy</u>
+            </Link>
+            and
+            <Link to="/">
+              <u>Terms of Service</u>
+            </Link>
+            apply
+          </text>
+        </div>
       </div>
     </div>
   );

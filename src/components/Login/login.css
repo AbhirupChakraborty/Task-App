@@ -108,10 +108,9 @@ input {
   background: url(https://icones.pro/wp-content/uploads/2021/05/icone-point-d-interrogation-question-gris.png)
     no-repeat top;
   background-size: 16px;
-  background-position-x: 11px;
-  background-position-y: 8px;
-  height: 5.5vh;
-  width: 5vh;
+  background-position-y: 0.5rem;
+  height: 5vh;
+  width: 4.5vh;
   font-size: xx-small;
   background-color: rgba(252, 250, 250, 0.1);
   cursor: pointer;

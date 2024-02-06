@@ -69,12 +69,12 @@ const Task = ({ task, tasks, setTasks }) => {
     const ftasks = tasks.filter((t) => t.id !== id);
     localStorage.setItem("tasks", JSON.stringify(ftasks));
     setTasks(ftasks);
-    toast("Task Removed", { icon: "💀" });
+    toast("Task Removed", { icon: "❌" });
   };
   return (
     <div ref={drag} className="card">
       <div id="contentCard">
-        <div className="contentCradItem">
+        <div className="contentCardItem">
           <x-small>List</x-small>
           <button
             className="deleteIcon"
@@ -85,17 +85,17 @@ const Task = ({ task, tasks, setTasks }) => {
             <FaTrash />
           </button>
         </div>
-        <div className="contentCradItem">
+        <div className="contentCardItem">
           <p className="taskName">{task.name}</p>
-          <button id="userIcon">
-            <FaCircleUser style={{ width: "2vh", height: "2vh" }} />
-          </button>
         </div>
         <div className="contentCardItem">
           <Link to="/list" className="addSubtask">
             <img src="https://pngimg.com/d/plus_PNG100.png" alt="view" />
             ADD SUBTASK
           </Link>
+          <button id="userIcon">
+            <FaCircleUser style={{ width: "2vh", height: "2vh" }} />
+          </button>
         </div>
       </div>
     </div>
@@ -143,7 +143,7 @@ const Section = ({
         return t;
       });
       localStorage.setItem("tasks", JSON.stringify(mTasks));
-      toast("Task Status Updated", { icon: "😲" });
+      toast("Task Status Updated", { icon: "✅" });
       return mTasks;
     });
   };
