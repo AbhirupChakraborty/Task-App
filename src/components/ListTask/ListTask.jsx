@@ -3,6 +3,7 @@ import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
 import { FaTrash } from "react-icons/fa";
 import { FaCircleUser } from "react-icons/fa6";
+import { RiEdit2Fill } from "react-icons/ri";
 import { useDrag, useDrop } from "react-dnd";
 import { useSelector, useDispatch } from "react-redux";
 import { removeTask, updateTaskStatus } from "../redux/taskSlice";
@@ -28,6 +29,9 @@ const Task = ({ task }) => {
       <div id="contentCard">
         <div className="contentCardItem">
           <x-small>List</x-small>
+          {/* <button className="deleteIcon">
+            <RiEdit2Fill />
+          </button> */}
           <button
             className="deleteIcon"
             onClick={() => {
