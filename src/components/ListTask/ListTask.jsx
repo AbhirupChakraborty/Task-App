@@ -28,10 +28,10 @@ const Task = ({ task }) => {
     <div ref={drag} className="card">
       <div id="contentCard">
         <div className="contentCardItem">
-          <x-small>List</x-small>
-          {/* <button className="deleteIcon">
+          <x-small id="smallList">List</x-small>
+          <button className="deleteIcon">
             <RiEdit2Fill />
-          </button> */}
+          </button>
           <button
             className="deleteIcon"
             onClick={() => {

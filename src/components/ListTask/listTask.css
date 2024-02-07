@@ -110,3 +110,6 @@
   align-items: center;
   justify-content: space-between;
 }
+#smallList {
+  flex-grow: 1;
+}
