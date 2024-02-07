@@ -115,7 +115,7 @@
   height: 2px;
   background-color: rgb(42, 137, 232);
   position: absolute;
-  bottom: -2px;
+  bottom: 2px;
 }
 #topList {
   display: flex;
