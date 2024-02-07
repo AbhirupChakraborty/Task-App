@@ -11,6 +11,7 @@
   background-color: #ffffff;
   border-right: 1px solid #ecf2f6;
   height: 100vh;
+  padding-top: 1vh;
 }
 
 #searchList {
@@ -37,7 +38,9 @@
 }
 
 .logoContainer img {
-  margin-right: 5px;
+  margin: 1vh;
+  margin-left: 0;
+  height: 2vh;
 }
 
 img {
@@ -70,10 +73,11 @@ img {
   margin: 0;
 }
 nav {
-  margin-top: 10px;
+  display: flex;
+  flex-direction: row;
+  margin-top: 1vh;
   font-size: small;
   padding: 0 0 0 1vh;
-  /* border-bottom: 2px solid #f0f4f7; */
 }
 
 a {
@@ -87,4 +91,14 @@ a:hover {
 
 svg {
   color: #959da5;
+  padding-right: 0.3rem;
+}
+#homeLabel {
+  padding-top: 0.1rem;
+  padding-left: 0.3rem;
+  font-weight: 600;
+  color: #827f7f;
+  font-size: smaller;
+  display: flex;
+  align-self: center;
 }

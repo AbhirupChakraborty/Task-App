@@ -1,63 +1,15 @@
-import { useState, useEffect } from "react";
 import "./listTask.css";
 import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
 import { FaTrash } from "react-icons/fa";
 import { FaCircleUser } from "react-icons/fa6";
 import { useDrag, useDrop } from "react-dnd";
+import { useSelector, useDispatch } from "react-redux";
+import { removeTask, updateTaskStatus } from "../redux/taskSlice";
 
-const ListTask = ({ tasks = [], setTasks }) => {
-  const [open, setOpen] = useState([]);
-  const [inProgress, setInProgress] = useState([]);
-  const [review, setReview] = useState([]);
-  const [closed, setClosed] = useState([]);
+const Task = ({ task }) => {
+  const dispatch = useDispatch();
 
-  useEffect(() => {
-    if (tasks && Array.isArray(tasks)) {
-      const fOpen = tasks.filter((task) => task.status === "open");
-      const fInProgress = tasks.filter((task) => task.status === "inprogress");
-      const fReview = tasks.filter((task) => task.status === "review");
-      const fClosed = tasks.filter((task) => task.status === "closed");
-
-      setOpen(fOpen);
-      setInProgress(fInProgress);
-      setReview(fReview);
-      setClosed(fClosed);
-    }
-  }, [tasks]);
-
-  const statuses = ["open", "inprogress", "review", "closed"];
-
-  return (
-    <div className="table">
-      {statuses.map((status, index) => (
-        <Section
-          key={index}
-          status={status}
-          tasks={tasks}
-          setTasks={setTasks}
-          open={open}
-          inProgress={inProgress}
-          review={review}
-          closed={closed}
-        />
-      ))}
-    </div>
-  );
-};
-
-export default ListTask;
-
-const Header = ({ text, count }) => {
-  return (
-    <div className="header">
-      {text}
-      <div className="counter">{count}</div>
-    </div>
-  );
-};
-
-const Task = ({ task, tasks, setTasks }) => {
   const [{ isDragging }, drag] = useDrag(() => ({
     type: "task",
     item: { id: task.id },
@@ -65,12 +17,12 @@ const Task = ({ task, tasks, setTasks }) => {
       isDragging: !!monitor.isDragging(),
     }),
   }));
+
   const handleRemove = (id) => {
-    const ftasks = tasks.filter((t) => t.id !== id);
-    localStorage.setItem("tasks", JSON.stringify(ftasks));
-    setTasks(ftasks);
+    dispatch(removeTask(id));
     toast("Task Removed", { icon: "❌" });
   };
+
   return (
     <div ref={drag} className="card">
       <div id="contentCard">
@@ -102,15 +54,9 @@ const Task = ({ task, tasks, setTasks }) => {
   );
 };
 
-const Section = ({
-  status,
-  tasks,
-  setTasks,
-  open,
-  inProgress,
-  review,
-  closed,
-}) => {
+const Section = ({ status, tasks }) => {
+  const dispatch = useDispatch();
+
   const [{ isOver }, drop] = useDrop(() => ({
     accept: "task",
     drop: (item) => addItemToSection(item.id),
@@ -119,42 +65,37 @@ const Section = ({
     }),
   }));
 
-  let text = "open";
-  let tasksToMap = open;
-
-  if (status === "inprogress") {
-    text = "inprogress";
-    tasksToMap = inProgress;
-  }
-  if (status === "review") {
-    text = "review";
-    tasksToMap = review;
-  }
-  if (status === "closed") {
-    text = "closed";
-    tasksToMap = closed;
-  }
   const addItemToSection = (id) => {
-    setTasks((prev) => {
-      const mTasks = prev.map((t) => {
-        if (t.id === id) {
-          return { ...t, status: status };
-        }
-        return t;
-      });
-      localStorage.setItem("tasks", JSON.stringify(mTasks));
-      toast("Task Status Updated", { icon: "✅" });
-      return mTasks;
-    });
+    dispatch(updateTaskStatus({ id, status }));
+    toast("Task Status Updated", { icon: "✅" });
   };
+
+  const tasksToMap = tasks.filter((task) => task.status === status);
+
   return (
     <div ref={drop} className="section">
-      <Header text={text} count={tasksToMap.length} />
-      {Array.isArray(tasksToMap) &&
-        tasksToMap.length > 0 &&
-        tasksToMap.map((task) => (
-          <Task key={task.id} task={task} tasks={tasks} setTasks={setTasks} />
-        ))}
+      <div className="header">
+        {status}
+        <div className="counter">{tasksToMap.length}</div>
+      </div>
+      {tasksToMap.map((task) => (
+        <Task key={task.id} task={task} />
+      ))}
     </div>
   );
 };
+
+const ListTask = () => {
+  const tasks = useSelector((state) => state.tasks);
+
+  return (
+    <div className="table">
+      <Section status="open" tasks={tasks} />
+      <Section status="inprogress" tasks={tasks} />
+      <Section status="review" tasks={tasks} />
+      <Section status="closed" tasks={tasks} />
+    </div>
+  );
+};
+
+export default ListTask;

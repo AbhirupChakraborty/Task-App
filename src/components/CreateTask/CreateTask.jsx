@@ -1,28 +1,40 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
-import "./createTask.css";
 import { Link } from "react-router-dom";
 import toast from "react-hot-toast";
 import Popup from "reactjs-popup";
-import { FaTimes } from "react-icons/fa";
+import { useDispatch } from "react-redux";
+import { addTask } from "../redux/taskSlice";
+import "./createTask.css";
+import { TbCircleDotted } from "react-icons/tb";
+import { CiCircleList } from "react-icons/ci";
+import { MdOutlineSpaceDashboard } from "react-icons/md";
+import { FaPlus } from "react-icons/fa6";
+import { MdOutlineAddBox } from "react-icons/md";
 
-const CreateTask = ({ tasks = [], setTasks }) => {
+const CreateTask = () => {
   const [task, setTask] = useState({
     id: "",
     name: "",
     status: "open",
   });
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const dispatch = useDispatch();
 
+  useEffect(() => {
+    setTask({
+      id: "",
+      name: "",
+      status: "open",
+    });
+  }, []);
+
+  const handleSubmit = (e, close) => {
+    e.preventDefault();
     if (task.name.length < 3)
       return toast.error("A task must have more than 3 characters");
-    setTasks((prev) => {
-      const list = Array.isArray(prev) ? [...prev, task] : [task];
-      localStorage.setItem("tasks", JSON.stringify(list));
-      return list;
-    });
+
+    dispatch(addTask({ ...task, id: uuidv4() }));
 
     toast.success("Task Created");
 
@@ -31,26 +43,22 @@ const CreateTask = ({ tasks = [], setTasks }) => {
       name: "",
       status: "open",
     });
+    close();
   };
 
   return (
     <div className="topBar">
       <div className="navBar">
-        <div id="topList">
-          <img
-            id="firstListLogo"
-            src="https://www.kindpng.com/picc/m/10-107754_buffering-quantum-dots-gold-nanoparticles-hd-png-download.png"
-            alt="List"
-          />
-          List
-        </div>
+        <Link to="">
+          <div id="list" className="navOption">
+            <TbCircleDotted />
+            List
+          </div>
+        </Link>
         <div className="navSeparator"></div>
         <Link to="">
           <div className="navOption">
-            <img
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8sg2J7ANgW5ZyFiH0A_B6jaGjXOkn-aIlcuuvRRvptKcH8G41f4rtYf-U75Qc6Ssd6W8&usqp=CAU"
-              alt="List"
-            />
+            <CiCircleList />
             List
           </div>
         </Link>
@@ -58,10 +66,7 @@ const CreateTask = ({ tasks = [], setTasks }) => {
 
         <Link to="/list">
           <div className="navOption">
-            <img
-              src="https://png.pngtree.com/element_our/20190601/ourmid/pngtree-purple-icon-free-illustration-image_1331414.jpg"
-              alt="Board"
-            />
+            <MdOutlineSpaceDashboard />
             Board
           </div>
         </Link>
@@ -69,48 +74,42 @@ const CreateTask = ({ tasks = [], setTasks }) => {
 
         <Link to="">
           <div className="navOption">
-            <img src="https://pngimg.com/d/plus_PNG100.png" alt="view" />
+            <FaPlus />
             View
           </div>
         </Link>
 
-        <Popup
-          trigger={<button className="createButton">Create a list</button>}
-          modal
-          nested
-        >
-          {(close) => (
-            <div className="modal">
-              <form onSubmit={handleSubmit}>
-                <textarea
-                  id="popupInput"
-                  type="text"
-                  value={task.name}
-                  onChange={(e) =>
-                    setTask({ ...task, id: uuidv4(), name: e.target.value })
-                  }
-                  rows="6"
-                  cols="28"
-                />
-                <button className="create" type="submit">
-                  create
-                </button>
-              </form>
-              <div
-                className="crossMark"
-                onClick={() => close()}
-                style={{
-                  color: "red",
-                  position: "absolute",
-                  top: "1vh",
-                  right: "1vh",
-                }}
-              >
-                <FaTimes />
+        <div className="navOption">
+          <Popup
+            trigger={
+              <span id="addBox" style={{ fontSize: "20px", padding: "0" }}>
+                <MdOutlineAddBox />
+              </span>
+            }
+            modal
+            nested
+          >
+            {(close) => (
+              <div>
+                <form
+                  className="modal"
+                  onSubmit={(e) => handleSubmit(e, close)}
+                >
+                  <label>Add Open-list</label>
+                  <textarea
+                    id="popupInput"
+                    type="text"
+                    value={task.name}
+                    onChange={(e) => setTask({ ...task, name: e.target.value })}
+                  />
+                  <button className="create" type="submit">
+                    ADD
+                  </button>
+                </form>
               </div>
-            </div>
-          )}
-        </Popup>
+            )}
+          </Popup>
+        </div>
       </div>
     </div>
   );

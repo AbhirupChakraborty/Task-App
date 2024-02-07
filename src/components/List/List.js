@@ -1,8 +1,7 @@
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Toaster } from "react-hot-toast";
-import { IoMdHome } from "react-icons/io";
-import logo from "/Users/chaka5/Documents/Goal/src/assets/logo.jpg";
+import { SlHome } from "react-icons/sl";
 import "./list.css";
 import CreateTask from "../CreateTask/CreateTask";
 import ListTask from "../ListTask/ListTask";
@@ -21,14 +20,16 @@ function List() {
       <Toaster />
       <div className="sidebar">
         <div className="logoContainer">
-          <img src={logo} alt="logo" width={20} height={25} />
-          <p id="taskApp">Task-App</p>
+          <img
+            src="https://app-cdn.clickup.com/clickup_color-new.6bdf034d4532f5506afbfd1908e3ea03.svg"
+            alt="logo"
+          />
         </div>
         <div className="menu">
           <input id="searchList" type="text" placeholder="Search" />
           <nav className="menuList">
-            <IoMdHome />
-            <Link>Home</Link>
+            <SlHome />
+            <label id="homeLabel">Home</label>
           </nav>
         </div>
       </div>
