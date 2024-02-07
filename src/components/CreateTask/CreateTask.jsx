@@ -65,7 +65,7 @@ const CreateTask = () => {
         <div className="navSeparator"></div>
 
         <Link to="/list">
-          <div className="navOption">
+          <div id="board" className="navOption">
             <MdOutlineSpaceDashboard />
             Board
           </div>
