@@ -8,6 +8,8 @@
   flex-direction: row;
   flex-wrap: wrap;
   padding: 1vh;
+  justify-content: space-between;
+  position: relative;
 }
 
 .navOption {
@@ -23,23 +25,6 @@
 }
 .navOption:last-of-type {
   margin-left: auto;
-}
-.navOption::after {
-  content: "";
-  display: block;
-  position: absolute;
-  bottom: -5px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 0;
-  height: 3px;
-  background-color: rgb(141, 104, 228);
-  transition: width 0.3s ease;
-}
-
-.navOption:hover::after {
-  width: 100%;
-  transition: width 0.3s ease;
 }
 .navOption img {
   width: 10px;
@@ -60,7 +45,7 @@
   justify-content: space-between;
   align-items: center;
   background-color: rgb(247, 248, 248);
-  padding: 20px;
+  padding: 2rem;
   border-radius: 1vh;
 }
 
@@ -107,7 +92,7 @@
   padding: 5px 15px;
   border: 0.5px solid rgba(252, 250, 250, 0.1);
   border-radius: 5px;
-  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
   transition: background-color 0.3s, box-shadow 0.3s;
   cursor: pointer;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
@@ -153,4 +138,5 @@
   width: 2vh;
   padding: 0;
   margin: 0;
+  cursor: pointer;
 }

@@ -95,10 +95,23 @@ const CreateTask = () => {
                   className="modal"
                   onSubmit={(e) => handleSubmit(e, close)}
                 >
-                  <label>Add Open-list</label>
+                  <label
+                    style={{
+                      fontSize: "1rem",
+                      fontWeight: "bold",
+                      padding: "0.5rem",
+                    }}
+                  >
+                    Add List
+                  </label>
                   <textarea
                     id="popupInput"
                     type="text"
+                    style={{
+                      margin: "0.5rem",
+                      height: "8rem",
+                      width: "15rem",
+                    }}
                     value={task.name}
                     onChange={(e) => setTask({ ...task, name: e.target.value })}
                   />

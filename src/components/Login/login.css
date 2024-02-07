@@ -108,7 +108,7 @@ input {
   background: url(https://icones.pro/wp-content/uploads/2021/05/icone-point-d-interrogation-question-gris.png)
     no-repeat top;
   background-size: 16px;
-  background-position-y: 0.5rem;
+  background-position-y: 0.3rem;
   height: 5vh;
   width: 4.5vh;
   font-size: xx-small;
@@ -144,6 +144,7 @@ input {
   font-size: x-small;
   display: flex;
   justify-content: center;
+  padding-right: 5.5vh;
 }
 #lastLine {
   color: #d4cfcf;
@@ -202,4 +203,9 @@ input {
   align-content: center;
   gap: 1vh;
   flex-grow: 1;
+}
+.cardContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 3vh;
 }
