@@ -11,6 +11,7 @@ import { CiCircleList } from "react-icons/ci";
 import { MdOutlineSpaceDashboard } from "react-icons/md";
 import { FaPlus } from "react-icons/fa6";
 import { MdOutlineAddBox } from "react-icons/md";
+import { ImCross } from "react-icons/im";
 
 const CreateTask = () => {
   const [task, setTask] = useState({
@@ -95,15 +96,33 @@ const CreateTask = () => {
                   className="modal"
                   onSubmit={(e) => handleSubmit(e, close)}
                 >
-                  <label
-                    style={{
-                      fontSize: "1rem",
-                      fontWeight: "bold",
-                      padding: "0.5rem",
-                    }}
-                  >
-                    Add List
-                  </label>
+                  <div>
+                    <label
+                      style={{
+                        fontSize: "1rem",
+                        fontWeight: "bold",
+                        padding: "0.5rem",
+                        left: "3rem",
+                      }}
+                    >
+                      Add List
+                    </label>
+                    <button
+                      style={{
+                        position: "absolute",
+                        top: 0,
+                        right: 0,
+                        background: "none",
+                        border: 0,
+                        padding: "0.5rem",
+                        margin: 0,
+                        cursor: "pointer",
+                      }}
+                      onClick={close}
+                    >
+                      <ImCross />
+                    </button>
+                  </div>
                   <textarea
                     id="popupInput"
                     type="text"
