@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { Link } from "react-router-dom";
 import toast from "react-hot-toast";
@@ -14,36 +14,26 @@ import { MdOutlineAddBox } from "react-icons/md";
 import { ImCross } from "react-icons/im";
 
 const CreateTask = () => {
-  const [task, setTask] = useState({
-    id: "",
-    name: "",
-    status: "open",
-  });
-
+  const [taskName, setTaskName] = useState("");
+  const [tasks, setTasks] = useState([]);
   const dispatch = useDispatch();
-
-  useEffect(() => {
-    setTask({
-      id: "",
-      name: "",
-      status: "open",
-    });
-  }, []);
 
   const handleSubmit = (e, close) => {
     e.preventDefault();
-    if (task.name.length < 3)
+    if (taskName.length < 3)
       return toast.error("A task must have more than 3 characters");
 
-    dispatch(addTask({ ...task, id: uuidv4() }));
+    const newTask = {
+      id: uuidv4(),
+      name: taskName,
+      status: "open",
+    };
+
+    dispatch(addTask(newTask));
+    setTasks([...tasks, newTask]);
 
     toast.success("Task Created");
-
-    setTask({
-      id: "",
-      name: "",
-      status: "open",
-    });
+    setTaskName("");
     close();
   };
 
@@ -131,8 +121,8 @@ const CreateTask = () => {
                       height: "8rem",
                       width: "15rem",
                     }}
-                    value={task.name}
-                    onChange={(e) => setTask({ ...task, name: e.target.value })}
+                    value={taskName}
+                    onChange={(e) => setTaskName(e.target.value)}
                   />
                   <button className="create" type="submit">
                     ADD
