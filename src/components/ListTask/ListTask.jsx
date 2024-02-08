@@ -5,11 +5,19 @@ import { FaTrash } from "react-icons/fa";
 import { FaCircleUser } from "react-icons/fa6";
 import { RiEdit2Fill } from "react-icons/ri";
 import { useDrag, useDrop } from "react-dnd";
+import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { removeTask, updateTaskStatus } from "../redux/taskSlice";
+import {
+  removeTask,
+  updateTaskName,
+  updateTaskStatus,
+} from "../redux/taskSlice";
+import Popup from "reactjs-popup";
+import { ImCross } from "react-icons/im";
 
 const Task = ({ task }) => {
   const dispatch = useDispatch();
+  const [editedName, setEditedName] = useState(task.name);
 
   const [{ isDragging }, drag] = useDrag(() => ({
     type: "task",
@@ -24,14 +32,85 @@ const Task = ({ task }) => {
     toast("Task Removed", { icon: "❌" });
   };
 
+  const handleEdit = (e, close) => {
+    e.preventDefault();
+    if (editedName.length < 3) {
+      toast.error("A task must have more than 3 characters");
+      return;
+    }
+
+    dispatch(updateTaskName({ ...task, name: editedName }));
+    toast.success("Task Updated");
+
+    close();
+  };
+
   return (
     <div ref={drag} className="card">
       <div id="contentCard">
         <div className="contentCardItem">
           <x-small id="smallList">List</x-small>
-          <button className="deleteIcon">
-            <RiEdit2Fill />
-          </button>
+          <button className="editIcon"></button>
+          <Popup
+            trigger={
+              <span
+                className="editIcon"
+                style={{ fontSize: "20px", padding: "0" }}
+              >
+                <RiEdit2Fill />
+              </span>
+            }
+            modal
+            nested
+          >
+            {(close) => (
+              <div>
+                <form className="modal" onSubmit={(e) => handleEdit(e, close)}>
+                  <div>
+                    <label
+                      style={{
+                        fontSize: "1rem",
+                        fontWeight: "bold",
+                        padding: "0.5rem",
+                        left: "3rem",
+                      }}
+                    >
+                      Edit List
+                    </label>
+                    <button
+                      style={{
+                        position: "absolute",
+                        top: 0,
+                        right: 0,
+                        background: "none",
+                        border: 0,
+                        padding: "0.5rem",
+                        margin: 0,
+                        cursor: "pointer",
+                      }}
+                      onClick={close}
+                    >
+                      <ImCross />
+                    </button>
+                  </div>
+                  <textarea
+                    id="popupInput"
+                    type="text"
+                    style={{
+                      margin: "0.5rem",
+                      height: "8rem",
+                      width: "15rem",
+                    }}
+                    value={editedName}
+                    onChange={(e) => setEditedName(e.target.value)}
+                  />
+                  <button className="create" type="submit">
+                    SAVE
+                  </button>
+                </form>
+              </div>
+            )}
+          </Popup>
           <button
             className="deleteIcon"
             onClick={() => {

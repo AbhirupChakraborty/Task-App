@@ -79,7 +79,8 @@
   padding-right: 1rem;
 }
 
-.card .deleteIcon {
+.card .deleteIcon,
+.editIcon {
   border: none;
   background-color: white;
   padding: 0;

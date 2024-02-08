@@ -17,9 +17,17 @@ export const taskSlice = createSlice({
           : task
       );
     },
+    updateTaskName: (state, action) => {
+      return state.map((task) =>
+        task.id === action.payload.id
+          ? { ...task, name: action.payload.name }
+          : task
+      );
+    },
   },
 });
 
-export const { addTask, removeTask, updateTaskStatus } = taskSlice.actions;
+export const { addTask, removeTask, updateTaskStatus, updateTaskName } =
+  taskSlice.actions;
 
 export default taskSlice.reducer;
