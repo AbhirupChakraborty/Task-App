@@ -19,6 +19,7 @@ const Task = ({ task }) => {
   const dispatch = useDispatch();
   const [editedName, setEditedName] = useState(task.name);
 
+  // eslint-disable-next-line no-unused-vars
   const [{ isDragging }, drag] = useDrag(() => ({
     type: "task",
     item: { id: task.id },
@@ -140,6 +141,7 @@ const Task = ({ task }) => {
 const Section = ({ status, tasks }) => {
   const dispatch = useDispatch();
 
+  // eslint-disable-next-line no-unused-vars
   const [{ isOver }, drop] = useDrop(() => ({
     accept: "task",
     drop: (item) => addItemToSection(item.id),
