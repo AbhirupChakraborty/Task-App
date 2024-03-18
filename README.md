@@ -20,5 +20,3 @@ This project is a dynamic web application built using React and Redux, featuring
 - Install dependencies using ``npm install``.
 - Start the development server with ``npm start``.
 - Open the application in your web browser (typically at http://localhost:3000)
-
-## Testing
